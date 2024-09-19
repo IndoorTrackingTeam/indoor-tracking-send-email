@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Redefinir senha</title>
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="assets/images/logo.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="reset-container">
+        <div class="header">
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="Company Logo">
+            </div>
+            <h2>Modifique sua senha</h2>
+        </div>
+        <p class="info-text">
+            Senhas fortes ajudam a proteger suas contas contra acessos não autorizados e aumentam a segurança geral dos seus dados.
+        </p>
+        <form action="/reset-password" method="POST">
+
+            <div class="input-group">
+                <label for="password">Digite sua nova senha</label>
+                <input type="password" id="password" name="password" required placeholder="Digite sua nova senha">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirme sua nova senha</label>
+                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirme sua nova senha">
+            </div>
+
+            <button type="submit" class="reset-btn">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
