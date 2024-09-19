@@ -14,7 +14,7 @@ on:
 
 env:
   IMAGE: reset-password
-  PORT: 8080
+  PORT: 8000
   REGION: us-east1
   CPU: 2
   MEMORY: 128Mi
