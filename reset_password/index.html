@@ -35,5 +35,16 @@
             <button type="submit" class="reset-btn">Enviar</button>
         </form>
     </div>
+
+    <script>
+        // Função para obter o valor do parâmetro "email" da URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Preencher o campo de email com o valor da query string
+        document.getElementById('email').value = getQueryParam('email');
+    </script>
 </body>
 </html>
