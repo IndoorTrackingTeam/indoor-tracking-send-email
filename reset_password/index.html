@@ -20,7 +20,10 @@
         <p class="info-text">
             Senhas fortes ajudam a proteger suas contas contra acessos não autorizados e aumentam a segurança geral dos seus dados.
         </p>
-        <form action="/reset-password" method="POST">
+        <form id="resetForm" action="https://run-api-prod-131050301176.us-east1.run.app/user/reset-password" method="POST">
+
+            <!-- Campo oculto para o email -->
+            <input type="hidden" id="email" name="email">
 
             <div class="input-group">
                 <label for="password">Digite sua nova senha</label>
@@ -37,14 +40,22 @@
     </div>
 
     <script>
-        // Função para obter o valor do parâmetro "email" da URL
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
         }
 
-        // Preencher o campo de email com o valor da query string
         document.getElementById('email').value = getQueryParam('email');
+
+        document.getElementById('resetForm').addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault();
+                alert("As senhas não coincidem. Por favor, verifique.");
+            }
+        });
     </script>
 </body>
 </html>
