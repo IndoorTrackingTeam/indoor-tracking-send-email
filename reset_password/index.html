@@ -56,7 +56,10 @@
 
             // Enviar a requisição usando fetch
             try {
-                const url = 'https://run-api-prod-131050301176.us-east1.run.app/user/redefine-password'
+                const url = 'https://run-api-prod-131050301176.us-east1.run.app/user/redefine-password';
+
+                console.log("Email: " + email);
+                console.log("Password: " + password);
                 const response = await fetch(url, {
                     method: 'POST',
                     headers: {
