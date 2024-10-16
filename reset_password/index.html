@@ -21,21 +21,70 @@
             Senhas fortes ajudam a proteger suas contas contra acessos não autorizados e aumentam a segurança geral dos seus dados.
         </p>
         <form id="reset-form">
+
             <div class="input-group">
-                <label for="password">Digite sua nova senha</label>
-                <input type="password" id="password" name="password" required placeholder="Digite sua nova senha">
+                <div>
+                    <label for="password">Digite sua nova senha</label>
+                    <div style="position: relative;">
+                        <input type="password" id="password" name="password" style="padding-right: 30px;" required placeholder="Digite sua nova senha"/>
+                            <span id="toggle-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                <svg id="toggle-password" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg> 
+                            </span>
+                    </div>
+                </div>
             </div>
 
             <div class="input-group">
-                <label for="confirm-password">Confirme sua nova senha</label>
-                <input type="password" id="confirm-password" name="confirm-password" required placeholder="Confirme sua nova senha">
+                <div>
+                    <label for="confirm-password">Confirme sua nova senha</label>
+                    <div style="position: relative;">
+                        <input type="password" id="confirm-password" name="confirm-password" style="padding-right: 30px;" required placeholder="Confirme sua nova senha"/>
+                            <span id="toggle-confirm-password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                <svg id="toggle-confirm-password" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                </svg> 
+                            </span>
+                    </div>
+                </div>
             </div>
+
 
             <button type="submit" class="reset-btn">Enviar</button>
         </form>
     </div>
 
     <script>
+        const eyeIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+        </svg>`;
+        
+        const eyeOffIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="eye-icon">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+            <circle cx="12" cy="12" r="3"></circle>
+            <line x1="3" y1="3" x2="21" y2="21"></line> 
+        </svg>`;
+
+        document.getElementById('toggle-password').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            document.getElementById('toggle-password').innerHTML = type === 'password' ? eyeIcon : eyeOffIcon;
+        });
+
+        document.getElementById('toggle-confirm-password').addEventListener('click', function () {
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordInput.setAttribute('type', type);
+
+            document.getElementById('toggle-confirm-password').innerHTML = type === 'password' ? eyeIcon : eyeOffIcon;
+        });
+
         function getQueryParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(param);
@@ -54,7 +103,6 @@
                 return;
             }
 
-            // Enviar a requisição usando fetch
             try {
                 const url = 'https://run-api-prod-131050301176.us-east1.run.app/user/redefine-password';
 
@@ -82,5 +130,25 @@
             }
         });
     </script>
+    <style>
+        .input-group {
+            position: relative;
+            margin-bottom: 15px;
+        }
+    
+        .input-group input {
+            padding-right: 40px; /* Para criar espaço para o ícone */
+            width: 100%;
+            box-sizing: border-box;
+        }
+    
+        .eye-icon {
+            color: #494c52;
+        }
+
+        .eye-icon:hover {
+            color: #6e727a;
+        }
+    </style>
 </body>
 </html>
