@@ -4,6 +4,9 @@
 
 <p align="center">
   <img alt="Static Badge" src="https://img.shields.io/badge/IT-Indoor%20Tracking-F1B600?&logoColor=white">
+  <a href="https://github.com/IndoorTrackingTeam/indoor-tracking-send-email/actions/workflows/ci-cd-deploy-prod.yaml">
+    <img alt="Page Deploy" src="https://github.com/IndoorTrackingTeam/indoor-tracking-send-email/actions/workflows/ci-cd-deploy-prod.yaml/badge.svg?branch=main">
+  </a>
 </p>
 
 ## Descrição
